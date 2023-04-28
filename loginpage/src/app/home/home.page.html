@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" ng-controller="TodoContainer">
   <div class="backdrop">
     <ion-header collapse="condense">
       <ion-toolbar>
@@ -21,6 +21,25 @@
       <div>
         <ion-button routerLink="/login">Login Page</ion-button>
       </div>
+      
+      <div class="list" id="list">
+        <div class="item item-input-insert">
+          <label class="item-input-wrapper">
+            <input type="text" placeholder="to-do list" ng-model="todoModel.todo">
+          </label>
+          <button class="button button-small" ng-click="addTodo()">Add item</button>
+        </div>
+      </div>
+    
+      <div id="list2">
+        <ul class="list">
+          <li class="item" ng-repeat="todo in todos track by $index">
+            {{ todo }}
+
+          </li>
+        </ul>
+      </div>
+      
     </div>
   </div>
 </ion-content>
